@@ -4,7 +4,7 @@ CREATE TABLE transactions
 (
     id            varchar(36) PRIMARY KEY                   NOT NULL,
     shop_id       varchar(36)                               NOT NULL,
-    type          enum ('payed','received') NOT NULL,
+    type          enum ('PAYED','RECEIVED') NOT NULL,
     subject       enum ('EXPENSES', 'EQUITY') NOT NULl,
     amount        decimal(64)                               NOT NULL,
     description   TEXT NUll,

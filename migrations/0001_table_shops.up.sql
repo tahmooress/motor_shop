@@ -3,7 +3,7 @@ BEGIN;
 CREATE TABLE shops
 (
     id         varchar(36) PRIMARY KEY                   NOT NULL,
-    shop_name  enum('YAFT-ABAD','TEHRAN_SAR','SED-JAMAL') NOT NULL,
+    shop_name  varchar(36)                               NOT NULL,
     created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6) NOT NULL,
     updated_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP (6) NOT NULL
 );

@@ -11,6 +11,11 @@ const (
 
 	BUY  = "BUY"
 	SELL = "SELL"
+
+	PAYED    = "PAYED"
+	RECEIVED = "RECEIVED"
+	EXPENSES = "EXPENSES"
+	EQUITY   = "EQUITY"
 )
 
 type ID = uuid.UUID

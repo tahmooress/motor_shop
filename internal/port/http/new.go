@@ -37,8 +37,9 @@ const (
 	customer   = "/customer"
 	customerID = "/customerID"
 
-	debts   = "/debts"
-	demands = "/demands"
+	debts    = "/debts"
+	demands  = "/demands"
+	equityID = "/:equityID"
 )
 
 func New(ctx context.Context, iUseCases interfaces.IUseCases, logger *logger.Logger) (*http.Server, error) {
@@ -62,6 +63,7 @@ func New(ctx context.Context, iUseCases interfaces.IUseCases, logger *logger.Log
 		{Path: admin + adminID, Method: http.MethodDelete, FN: deleteAdminHandler(ctx, iUseCases)},
 		{Path: admin, Method: http.MethodGet, FN: getAdminsHandler(ctx, iUseCases)},
 		{Path: shops, Method: http.MethodGet, FN: getShopsHandler(ctx, iUseCases)},
+		{Path: shops, Method: http.MethodPost, FN: createShopHandler(ctx, iUseCases)},
 		{Path: buy, Method: http.MethodPost, FN: buyHandler(ctx, iUseCases)},
 		{Path: sell, Method: http.MethodPost, FN: sellHandler(ctx, iUseCases)},
 		{Path: inventory + shopID, Method: http.MethodGet, FN: getShopInventoryHandler(ctx, iUseCases)},
@@ -71,10 +73,10 @@ func New(ctx context.Context, iUseCases interfaces.IUseCases, logger *logger.Log
 		{Path: factor + factorNumber + shopID, Method: http.MethodGet, FN: getFactorByNumberHandler(ctx, iUseCases)},
 		{Path: debts + shopID, Method: http.MethodGet, FN: getShopPayables(ctx, iUseCases)},
 		{Path: demands + shopID, Method: http.MethodGet, FN: getShopReceivable(ctx, iUseCases)},
-
-		//{Path: buy + id, Method: http.MethodGet, FN: getBuysHandler(ctx, iUseCases)},
-		//{Path: sell + id, Method: http.MethodGet, FN: getSellsHandler(ctx, iUseCases)},
-
+		{Path: buy + shopID, Method: http.MethodGet, FN: getBuysHandler(ctx, iUseCases)},
+		{Path: sell + shopID, Method: http.MethodGet, FN: getSellsHandler(ctx, iUseCases)},
+		{Path: demands + equityID, Method: http.MethodPut, FN: updateShopReceivable(ctx, iUseCases)},
+		{Path: debts + equityID, Method: http.MethodPut, FN: updateShopPayable(ctx, iUseCases)},
 	}
 
 	serverHTTP, err := server.New(ctx, ip, port, routers, logger)

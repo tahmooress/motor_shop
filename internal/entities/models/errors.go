@@ -24,4 +24,8 @@ var (
 		"شماره موبایل صحیح نمیباشد.")
 	ErrShopNotExist = customeerror.New("1010", "shop with this id is not exist",
 		"فروشگاهی با این شماره شناسایی موجود نیست")
+	ErrShopAlreadyExist = customeerror.New("1011", "shop with this name is already exist",
+		"فروشگاهی با این نام و مشخصات قبلا در سیستم ثبت شده است.")
+	ErrEquityID = customeerror.New("1012", "equity with this id is not exits",
+		"حسابی با این شماره شناسیایی در سیستم موجود تیسن")
 )

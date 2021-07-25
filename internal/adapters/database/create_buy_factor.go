@@ -145,6 +145,21 @@ func (m *Mysql) CreateBuyFactor(ctx context.Context, factor models.Factor, shopI
 		return nil, fmt.Errorf("mysql >> CreateFactor >> ExecContext() >> %w", err)
 	}
 
+	txStmt, err := tx.PrepareContext(ctx, "INSERT INTO transactions(id, shop_id, type, subject,"+
+		"amount, factor_number,created_at) VALUES(?,?,?,?,"+
+		"?,?,?)")
+	if err != nil {
+		return nil, fmt.Errorf("mysql >> CreateBuyFactor >> PrepareContext() >> %w", err)
+	}
+
+	defer txStmt.Close()
+
+	_, err = txStmt.ExecContext(ctx, models.NewID(), shopID, models.PAYED, models.EQUITY,
+		factor.PayedAmount, factor.FactorNumber, factor.CreatedAt)
+	if err != nil {
+		return nil, fmt.Errorf("mysql >> CreateBuyFactor >> ExecContext() >> %w", err)
+	}
+
 	err = tx.Commit()
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateFactor >> tx.Commit() >> %w", err)

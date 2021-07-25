@@ -54,14 +54,14 @@ type Motor struct {
 }
 
 type Transaction struct {
-	ID                    ID
-	ReferenceFactorNumber ID
-	Description           string
-	Subject               string
-	Type                  string
-	Amount                float64
-	CreatedAt             time.Time
-	UpdatedAt             time.Time
+	ID           ID
+	FactorNumber string
+	Description  string
+	Subject      string
+	Type         string
+	Amount       float64
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type Shop struct {
@@ -69,4 +69,12 @@ type Shop struct {
 	ShopName  string    `json:"shop_name"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
+}
+
+type ShopTrades struct {
+	FactorNumber string    `json:"factor_number"`
+	CustomerID   ID        `json:"customer_id"`
+	TotalAmount  float64   `json:"total_amount"`
+	PayedAmount  float64   `json:"payed_amount"`
+	CreatedAt    time.Time `json:"created_at"`
 }
