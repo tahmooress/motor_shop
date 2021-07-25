@@ -28,8 +28,9 @@ func (m *Mysql) GetAdminByID(ctx context.Context, adminID models.ID) (*models.Ad
 		return nil, fmt.Errorf("mysql >> GetAdminByID >> QueryRowContext() >> %w", err)
 	}
 
-	stm, err := m.db.PrepareContext(ctx, "SELECT shops.id, shops.shop_name, shops.created_at, shops.updated_at FROM "+
-		"shops LEFT JOIN accessibility ON shops.id = accessibility.shop_id WHERE accessibility.admin_id = ?")
+	stm, err := m.db.PrepareContext(ctx, "SELECT shops.id, shops.shop_name, shops.created_at, shops.updated_at"+
+		" FROM shops LEFT JOIN accessibility ON shops.id = accessibility.shop_id"+
+		" WHERE accessibility.admin_id = ?")
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> GetAdminByID >> PrepareContext() >> %w", err)
 	}
@@ -43,17 +44,17 @@ func (m *Mysql) GetAdminByID(ctx context.Context, adminID models.ID) (*models.Ad
 
 	defer rows.Close()
 
-	admin.Accessibility = make([]models.ShopIdentity, 0)
+	admin.Shops = make([]models.Shop, 0)
 
 	for rows.Next() {
-		var access models.ShopIdentity
+		var shop models.Shop
 
-		err = rows.Scan(&access.ID, &access.ShopName, &access.CreatedAt, &access.UpdatedAt)
+		err = rows.Scan(&shop.ID, &shop.ShopName, &shop.CreatedAt, &shop.UpdatedAt)
 		if err != nil {
 			return nil, fmt.Errorf("mysql >> GetAdminByID >> rows.Scan() >> %w", err)
 		}
 
-		admin.Accessibility = append(admin.Accessibility, access)
+		admin.Shops = append(admin.Shops, shop)
 	}
 
 	err = rows.Err()

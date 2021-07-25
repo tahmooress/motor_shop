@@ -2,17 +2,16 @@ package http
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
-	"github.com/tahmooress/motor-shop/internal/entities/models"
+	"github.com/tahmooress/motor-shop/internal/port/dto/dtocustomers"
 
 	"github.com/tahmooress/motor-shop/internal/entities/interfaces"
 	"github.com/tahmooress/motor-shop/internal/pkg/server"
 )
 
-func updateAdminHandler(_ context.Context, iUseCases interfaces.IUseCases) server.MiddleFunc {
+func getCustomersHandler(_ context.Context, iUseCases interfaces.IUseCases) server.MiddleFunc {
 	return func(ctx context.Context, r server.RawRequest) (interface{}, error) {
-		var adm models.Admin
+		var request dtocustomers.Request
 
 		token, err := getToken(r)
 		if err != nil {
@@ -24,16 +23,13 @@ func updateAdminHandler(_ context.Context, iUseCases interfaces.IUseCases) serve
 			return nil, fmt.Errorf("createAdminHandler >> %w", err)
 		}
 
-		err = json.Unmarshal(r.Req, &adm)
+		request.Query = r.Query
+
+		response, err := iUseCases.GetCustomers(tokenCTX, &request)
 		if err != nil {
-			return nil, fmt.Errorf("updateAdminHandler >> json.Unmarshal() >> %w", err)
+			return nil, fmt.Errorf("getCustomersHandler %w", err)
 		}
 
-		respAdmin, err := iUseCases.UpdateAdmin(tokenCTX, adm)
-		if err != nil {
-			return nil, fmt.Errorf("updateAdminHandler >> %w", err)
-		}
-
-		return respAdmin, nil
+		return response, nil
 	}
 }

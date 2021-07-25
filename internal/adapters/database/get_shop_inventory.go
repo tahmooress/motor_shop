@@ -10,13 +10,13 @@ import (
 
 func (m *Mysql) GetShopInventory(ctx context.Context,
 	request *dtogetshopinventory.Request) (*dtogetshopinventory.Response, error) {
-	stmt, err := m.db.PrepareContext(ctx, "SELECT shop_inventory.id, factor_id, motors.id,"+
+	stmt, err := m.db.PrepareContext(ctx, "SELECT shop_inventory.id, factor_number, motors.id,"+
 		" motors.model_name, motors.pelak_number, motors.body_number,"+
 		" motors.color, motors.model_year,"+
 		" motors.created_at, motors.updated_at,"+
 		" shop_inventory.created_at, shop_inventory.updated_at"+
 		" FROM shop_inventory INNER JOIN motors ON shop_inventory.motor_id = motors.id "+
-		"WHERE shop_inventory.shop_id = ?  LIMIT ? OFFSET ?")
+		"WHERE shop_inventory.shop_id = ? LIMIT ? OFFSET ?")
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> GetShopInventory >> PrepareContext() >> %w", err)
 	}
@@ -41,7 +41,7 @@ func (m *Mysql) GetShopInventory(ctx context.Context,
 	for rows.Next() {
 		var temp models.Inventory
 
-		err = rows.Scan(&temp.ID, &temp.FactorID, &temp.Motor.ID,
+		err = rows.Scan(&temp.ID, &temp.FactorNumber, &temp.Motor.ID,
 			&temp.Motor.ModelName, &temp.Motor.PelakNumber, &temp.Motor.BodyNumber,
 			&temp.Motor.Color, &temp.Motor.ModelYear, &temp.Motor.CreatedAt,
 			&temp.Motor.UpdatedAt, &temp.CreatedAt, &temp.UpdatedAt)

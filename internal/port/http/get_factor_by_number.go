@@ -13,26 +13,34 @@ func getFactorByNumberHandler(_ context.Context, iUseCases interfaces.IUseCases)
 	return func(ctx context.Context, r server.RawRequest) (interface{}, error) {
 		token, err := getToken(r)
 		if err != nil {
-			return nil, fmt.Errorf("createAdminHandler >> %w", err)
+			return nil, fmt.Errorf("getFactorByNumberHandler >> %w", err)
 		}
 
 		tokenCTX, err := iUseCases.Authentication(ctx, token)
 		if err != nil {
-			return nil, fmt.Errorf("createAdminHandler >> %w", err)
+			return nil, fmt.Errorf("getFactorByNumberHandler >> %w", err)
 		}
 
-		fNumber, ok := r.Params["id"]
+		fNumber, ok := r.Params["factorNumber"]
 		if !ok || fNumber == nil || fNumber[0] == "" {
-			return nil, fmt.Errorf("deleteCardHandler >>  %w", models.ErrParams)
+			return nil, fmt.Errorf("getFactorByNumberHandler >>  %w", models.ErrParams)
 		}
 
-		factorNumber, err := uuid.Parse(fNumber[0])
+		sp, ok := r.Params["shopID"]
+		if !ok || sp == nil || sp[0] == "" {
+			return nil, fmt.Errorf("getFactorByNumber >>  %w", models.ErrParams)
+		}
+
+		spID, err := uuid.Parse(sp[0])
 		if err != nil {
 			return nil, models.ErrUserNotFound
 		}
 
+		response, err := iUseCases.GetFactorByNumber(tokenCTX, fNumber[0], spID)
+		if err != nil {
+			return nil, fmt.Errorf("getFactorByNumberHandler >> %w", err)
+		}
 
-
-		return nil, nil
+		return response, nil
 	}
 }

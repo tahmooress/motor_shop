@@ -4,26 +4,29 @@ import (
 	"context"
 	"github.com/tahmooress/motor-shop/internal/entities/models"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtoadmins"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtobuy"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtodeleteadmin"
+	"github.com/tahmooress/motor-shop/internal/port/dto/dtocustomers"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtogetshopinventory"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtogetshops"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtosell"
+	"github.com/tahmooress/motor-shop/internal/port/dto/dtoshopequity"
 )
 
 type IDatabase interface {
 	GetAdminIDByUserName(ctx context.Context, userName string) (*models.ID, error)
 	GetAdminByID(ctx context.Context, adminID models.ID) (*models.Admin, error)
-	GetAdminAccessibility(ctx context.Context, adminID models.ID) ([]string, error)
+	//GetAdminAccessibility(ctx context.Context, adminID models.ID) ([]string, error)
 	GetAdmins(ctx context.Context, request *dtoadmins.Request) (*dtoadmins.Response, error)
+	GetMotorByPelakNumber(ctx context.Context, pelakNumber string) (*models.Motor, error)
 	GetShopsList(ctx context.Context, request *dtogetshops.Request) (*dtogetshops.Response, error)
-	GetBuyFactorByNumber(ctx context.Context, factorNumber string) (*dtobuy.Response, error)
+	GetFactorByNumber(ctx context.Context, factorNumber string, shopID models.ID) (*models.Factor, error)
 	GetShopInventory(ctx context.Context, request *dtogetshopinventory.Request) (*dtogetshopinventory.Response, error)
-	GetSellFactorByNumber(ctx context.Context, factorNumber string) (*dtosell.Response, error)
-	CreateAdmin(ctx context.Context, userName, hashedPassword string, accessibility []models.ID) (*models.Admin, error)
-	CreateBuyFactor(ctx context.Context, request *dtobuy.Request) (string, error)
-	CreateSellFactor(ctx context.Context, request *dtosell.Request) (string, error)
+	GetCustomers(ctx context.Context, request *dtocustomers.Request) (*dtocustomers.Response, error)
+	GetCustomerByID(ctx context.Context, customerID models.ID) (*models.Customer, error)
+	GetShopPayables(ctx context.Context, request *dtoshopequity.Request) (*dtoshopequity.Response, error)
+	GetShopReceiveable(ctx context.Context, request *dtoshopequity.Request) (*dtoshopequity.Response, error)
+	CreateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
+	CreateBuyFactor(ctx context.Context, factor models.Factor, shopID models.ID) (*models.Factor, error)
+	CreateSellFactor(ctx context.Context, factor models.Factor, shopID models.ID) (*models.Factor, error)
 	UpdateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
-	DeleteAdmin(ctx context.Context, request *dtodeleteadmin.Request) (*dtodeleteadmin.Response, error)
+	DeleteAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
 	Close() error
 }

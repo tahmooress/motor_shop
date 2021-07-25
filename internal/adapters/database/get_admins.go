@@ -76,19 +76,19 @@ func (m *Mysql) GetAdmins(ctx context.Context, request *dtoadmins.Request) (*dto
 			return nil, fmt.Errorf("mysql >> GetAdmins >>  QueryContext() >> %w", err)
 		}
 
-		response.Admins[index].Accessibility = make([]models.ShopIdentity, 0)
+		response.Admins[index].Shops = make([]models.Shop, 0)
 
 		for rows.Next() {
-			var access models.ShopIdentity
+			var shop models.Shop
 
-			err = rows.Scan(&access.ID, &access.ShopName, &access.CreatedAt, &access.UpdatedAt)
+			err = rows.Scan(&shop.ID, &shop.ShopName, &shop.CreatedAt, &shop.UpdatedAt)
 			if err != nil {
 				rows.Close()
 
 				return nil, fmt.Errorf("mysql >> GetAdmins >> rows.Scan() >> %w", err)
 			}
 
-			response.Admins[index].Accessibility = append(response.Admins[index].Accessibility, access)
+			response.Admins[index].Shops = append(response.Admins[index].Shops, shop)
 		}
 
 		rows.Close()

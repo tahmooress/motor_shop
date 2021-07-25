@@ -3,17 +3,16 @@ package http
 import (
 	"context"
 	"fmt"
-
 	"github.com/google/uuid"
 	"github.com/tahmooress/motor-shop/internal/entities/interfaces"
 	"github.com/tahmooress/motor-shop/internal/entities/models"
 	"github.com/tahmooress/motor-shop/internal/pkg/server"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtogetshopinventory"
+	"github.com/tahmooress/motor-shop/internal/port/dto/dtoshopequity"
 )
 
-func getShopInventoryHandler(_ context.Context, iUseCases interfaces.IUseCases) server.MiddleFunc {
+func getShopReceivable(_ context.Context, iUseCases interfaces.IUseCases) server.MiddleFunc {
 	return func(ctx context.Context, r server.RawRequest) (interface{}, error) {
-		var request dtogetshopinventory.Request
+		var request dtoshopequity.Request
 
 		token, err := getToken(r)
 		if err != nil {
@@ -38,7 +37,7 @@ func getShopInventoryHandler(_ context.Context, iUseCases interfaces.IUseCases) 
 		request.ShopID = shopID
 		request.Query = r.Query
 
-		response, err := iUseCases.GetShopInventory(tokenCTX, &request)
+		response, err := iUseCases.GetShopReceiveable(tokenCTX, &request)
 		if err != nil {
 			return nil, fmt.Errorf("getShopInventoryHandler %w", err)
 		}

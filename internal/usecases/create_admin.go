@@ -3,22 +3,21 @@ package usecases
 import (
 	"context"
 	"fmt"
-
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtoadmin"
+	"github.com/tahmooress/motor-shop/internal/entities/models"
 )
 
-func (u *UseCases) CreateAdmin(ctx context.Context, request *dtoadmin.Request) (*dtoadmin.Response, error) {
-	password, err := u.generateHashPassword(request.Password)
+func (u *UseCases) CreateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error) {
+	password, err := u.generateHashPassword(admin.Password)
 	if err != nil {
 		return nil, fmt.Errorf("createAdmin() >> %w", err)
 	}
 
-	admin, err := u.IDatabase.CreateAdmin(ctx, request.UserName, password, request.Accessibility)
+	admin.Password = password
+
+	respAdmin, err := u.IDatabase.CreateAdmin(ctx, admin)
 	if err != nil {
 		return nil, fmt.Errorf("createAdmin() >> %w", err)
 	}
 
-	return &dtoadmin.Response{
-		Admin: *admin,
-	}, nil
+	return respAdmin, nil
 }

@@ -3,11 +3,11 @@ package database
 import (
 	"context"
 	"fmt"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtodeleteadmin"
+	"github.com/tahmooress/motor-shop/internal/entities/models"
 )
 
-func (m *Mysql) DeleteAdmin(ctx context.Context, request *dtodeleteadmin.Request) (*dtodeleteadmin.Response, error) {
-	admin, err := m.GetAdminByID(ctx, request.AdminID)
+func (m *Mysql) DeleteAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error) {
+	fetchedAdmin, err := m.GetAdminByID(ctx, admin.ID)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> DeleteAdmin >> %w", err)
 	}
@@ -17,12 +17,10 @@ func (m *Mysql) DeleteAdmin(ctx context.Context, request *dtodeleteadmin.Request
 		return nil, fmt.Errorf("mysql >> DeleteAdmin >> PrepareContext() >> %w", err)
 	}
 
-	_, err = stmt.ExecContext(ctx, request.AdminID)
+	_, err = stmt.ExecContext(ctx, admin.ID)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> DeleteAdmin >> ExecContext() >> %w", err)
 	}
 
-	return &dtodeleteadmin.Response{
-		Admin: *admin,
-	}, nil
+	return fetchedAdmin, nil
 }

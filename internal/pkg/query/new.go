@@ -43,7 +43,7 @@ func New(db *sql.DB) (Query, error) {
 }
 
 // Where is an interface for Query struct to add additional where statement.
-func (q *Query) Where(field string, values []string, operation string) {
+func (q *Query) Where(field string, values []interface{}, operation string) {
 	w := Where{
 		Field:     field,
 		Values:    values,

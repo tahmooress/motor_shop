@@ -3,7 +3,6 @@ package usecases
 import (
 	"context"
 	"fmt"
-
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtogetshops"
 )
 

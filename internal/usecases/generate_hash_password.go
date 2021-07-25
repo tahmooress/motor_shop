@@ -6,6 +6,10 @@ import (
 )
 
 func (u *UseCases) generateHashPassword(password string) (string, error) {
+	if password == "" {
+		return "", nil
+	}
+
 	hash := sha1.Sum([]byte(password))
 
 	return hex.EncodeToString(hash[:]), nil

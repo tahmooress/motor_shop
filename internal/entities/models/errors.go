@@ -20,4 +20,8 @@ var (
 	)
 	ErrMotorIsNotExist = customeerror.New("1008", "motor with this id and name is not exist in shop",
 		"موتور با این مشخصات در سیستم موجود نیست")
+	ErrMobile = customeerror.New("1009", "mobile number is not valid",
+		"شماره موبایل صحیح نمیباشد.")
+	ErrShopNotExist = customeerror.New("1010", "shop with this id is not exist",
+		"فروشگاهی با این شماره شناسایی موجود نیست")
 )

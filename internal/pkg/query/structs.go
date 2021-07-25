@@ -8,7 +8,8 @@ import (
 type Where struct {
 	Field     string
 	Operation string
-	Values    []string
+	//Values    []string
+	Values []interface{}
 }
 
 type sort struct {

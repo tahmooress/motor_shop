@@ -11,6 +11,6 @@ type Request struct {
 }
 
 type Response struct {
-	Data []models.ShopIdentity `json:"data"`
-	Meta query.Meta            `json:"meta"`
+	Data []models.Shop `json:"data"`
+	Meta query.Meta    `json:"meta"`
 }

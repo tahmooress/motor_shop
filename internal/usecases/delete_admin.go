@@ -3,15 +3,14 @@ package usecases
 import (
 	"context"
 	"fmt"
-
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtodeleteadmin"
+	"github.com/tahmooress/motor-shop/internal/entities/models"
 )
 
-func (u *UseCases) DeleteAdmin(ctx context.Context, request *dtodeleteadmin.Request) (*dtodeleteadmin.Response, error) {
-	response, err := u.IDatabase.DeleteAdmin(ctx, request)
+func (u *UseCases) DeleteAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error) {
+	respAdmin, err := u.IDatabase.DeleteAdmin(ctx, admin)
 	if err != nil {
 		return nil, fmt.Errorf("deleteAdmin >> %w", err)
 	}
 
-	return response, nil
+	return respAdmin, nil
 }

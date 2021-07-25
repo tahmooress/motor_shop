@@ -1,27 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bab6867-0395-44f5-82de-94f22d1b8087" name="Default Changelist" comment="" />
+    <list default="true" id="0bab6867-0395-44f5-82de-94f22d1b8087" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_customer_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_customers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_motor_by_pelak_number.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_payables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_receivables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/dto/dtocustomers/dto_customers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_customer_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_motor_by_pelak_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_shop_customers_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_shop_payables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_shop_receiveables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_customer_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_customers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_motor_by_pelak_number.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_shop_payables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_shop_receiveables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/0011_table_items.down.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/0011_table_items.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/delete_admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/delete_admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_admin_by_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_admin_by_id.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_admins.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_admins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_buy_factor_by_numebr.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_factor_by_numebr.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_sell_factor_by_number.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_sell_factor_by_number.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_shop_inventory.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_inventory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_shops_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_shops_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/update_admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/update_admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/interfaces/idatabase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/interfaces/idatabase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/interfaces/iusecases.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/interfaces/iusecases.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/models/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/models/shop.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/shop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/models/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/query/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/query/new.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/query/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/query/parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/query/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/query/structs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoadmin/dto_admin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtobuy/dto_buyy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtocustomer/dto_customer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtodeleteadmin/dto_delete_admin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtogetbalance/dto_get_balance.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtogetbuy/dto_get_buys.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/dto/dtoshopequity/dto_shop_equity.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtogetsell/dto_get_sell.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtogetshops/dto_get_shops.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/dto/dtogetshops/dto_get_shops.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtosell/dto_sell.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoshoppayables/dto_shop_payables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoshoprecieveables/dto_shop_receivables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtotransaction/dto_transaction.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoupdateadmin/dto_update_admin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoupdatepayables/dto_update_payables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoupdatereceives/dto_update_receivables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/buy_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/buy_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/create_admin_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/create_admin_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/delete_admin_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/delete_admin_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_factor_by_id_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_factor_by_number.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_shop_inventory_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_shop_inventory_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/new.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/sell_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/sell_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/update_admin_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/update_admin_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/buy.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/buy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/create_admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/create_admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/delete_admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/delete_admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/generate_hash_password.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/generate_hash_password.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/get_factor_by_number.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/get_factor_by_number.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/get_shop_inventory.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/get_shop_inventory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/get_shops_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/get_shops_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/sell.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/sell.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/update_admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/update_admin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/0006_table_factors.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0006_table_factors.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/0010_table_transactions.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0010_table_transactions.up.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
   <component name="ProjectId" id="1t1OXcBIWchiw3Ekr0MKWf8Kqli" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/migrations" />
+      <recent name="$PROJECT_DIR$/internal/pkg" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build github.com/tahmooress/motor-shop/cmd">
+    <configuration name="go build github.com/tahmooress/motor-shop/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="motor_shop" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="HTTP_IP" value="127.0.0.1" />
+        <env name="HTTP_PORT" value="6000" />
+        <env name="MYSQL_DBNAME" value="motors" />
+        <env name="MYSQL_HOST" value="127.0.0.1" />
+        <env name="MYSQL_PORT" value="3306" />
+        <env name="MYSQL_USER" value="root" />
+        <env name="MYSQL_PASS" value="password" />
+        <env name="MYSQL_SSLMODE" value="false" />
+      </envs>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/main.go" />
+      <package value="github.com/tahmooress/motor-shop/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build motor_shop" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="motor_shop" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <envs>
+        <env name="HTTP_IP" value="127.0.0.1" />
+        <env name="HTTP_PORT" value="6000" />
+        <env name="MYSQL_DBNAME" value="motors" />
+        <env name="MYSQL_HOST" value="127.0.0.1" />
+        <env name="MYSQL_PORT" value="3306" />
+        <env name="MYSQL_USER" value="root" />
+        <env name="MYSQL_PASS" value="password" />
+        <env name="MYSQL_SSLMODE" value="false" />
+      </envs>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="github.com/tahmooress/motor-shop" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build motor_shop" />
+      <item itemvalue="Go Build.go build github.com/tahmooress/motor-shop/cmd" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/tahmooress/motor-shop/cmd" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go</url>
+          <line>11</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go</url>
+          <line>11</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="DlvErrorBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

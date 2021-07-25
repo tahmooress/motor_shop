@@ -20,7 +20,7 @@ func (m *Mysql) GetShopsList(ctx context.Context, request *dtogetshops.Request) 
 	q.Body = "FROM shops"
 	q.QueryFilters = request.Query
 
-	response.Data = make([]models.ShopIdentity, 0)
+	response.Data = make([]models.Shop, 0)
 
 	meta, err := q.Exec(ctx, &response.Data)
 	if err != nil {

@@ -3,11 +3,12 @@ package database
 import (
 	"context"
 	"fmt"
-	"github.com/tahmooress/motor-shop/internal/entities/models"
 	"strings"
+
+	"github.com/tahmooress/motor-shop/internal/entities/models"
 )
 
-func (m *Mysql) CreateAdmin(ctx context.Context, userName, hashedPassword string, accessibility []models.ID) (*models.Admin, error) {
+func (m *Mysql) CreateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error) {
 	tx, err := m.db.Begin()
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateAdmin() >> db.Begin() >> %w", err)
@@ -23,7 +24,7 @@ func (m *Mysql) CreateAdmin(ctx context.Context, userName, hashedPassword string
 
 	adminID := models.NewID()
 
-	result, err := stmt.ExecContext(ctx, adminID, userName, hashedPassword)
+	result, err := stmt.ExecContext(ctx, adminID, admin.UserName, admin.Password)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateAdmin() >> ExecContext() >> %w", err)
 	}
@@ -41,9 +42,9 @@ func (m *Mysql) CreateAdmin(ctx context.Context, userName, hashedPassword string
 	valStmts := ""
 	args := make([]interface{}, 0)
 
-	for _, id := range accessibility {
+	for _, shop := range admin.Shops {
 		valStmts += "(?,?,?),"
-		args = append(args, models.NewID(), adminID, id)
+		args = append(args, models.NewID(), adminID, shop.ID)
 	}
 
 	statement += strings.TrimRight(valStmts, ",")
@@ -67,10 +68,10 @@ func (m *Mysql) CreateAdmin(ctx context.Context, userName, hashedPassword string
 		return nil, fmt.Errorf("mysql >> CreateAdmin() >> tx.Commit() >> %w", err)
 	}
 
-	admin, err := m.GetAdminByID(ctx, adminID)
+	respAdmin, err := m.GetAdminByID(ctx, adminID)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateAdmin() >> %w", err)
 	}
 
-	return admin, nil
+	return respAdmin, nil
 }

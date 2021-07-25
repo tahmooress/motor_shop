@@ -8,37 +8,36 @@ import (
 	"github.com/tahmooress/motor-shop/internal/entities/interfaces"
 	"github.com/tahmooress/motor-shop/internal/entities/models"
 	"github.com/tahmooress/motor-shop/internal/pkg/server"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtoadmin"
 )
 
 func createAdminHandler(_ context.Context, iUseCases interfaces.IUseCases) server.MiddleFunc {
 	return func(ctx context.Context, r server.RawRequest) (interface{}, error) {
-		var request dtoadmin.Request
+		var adm models.Admin
 
-		token, err := getToken(r)
-		if err != nil {
-			return nil, fmt.Errorf("createAdminHandler >> %w", err)
-		}
+		//token, err := getToken(r)
+		//if err != nil {
+		//	return nil, fmt.Errorf("createAdminHandler >> %w", err)
+		//}
+		//
+		//tokenCTX, err := iUseCases.Authentication(ctx, token)
+		//if err != nil {
+		//	return nil, fmt.Errorf("createAdminHandler >> %w", err)
+		//}
 
-		tokenCTX, err := iUseCases.Authentication(ctx, token)
-		if err != nil {
-			return nil, fmt.Errorf("createAdminHandler >> %w", err)
-		}
-
-		err = json.Unmarshal(r.Req, &request)
+		err := json.Unmarshal(r.Req, &adm)
 		if err != nil {
 			return nil, fmt.Errorf("createAdminHandler() >> json.Unmarshal() >> %w", err)
 		}
 
-		if len(request.Accessibility) == 0 || request.Accessibility == nil {
+		if len(adm.Shops) == 0 || adm.Shops == nil {
 			return nil, models.ErrAdminAccessibilityEmpty
 		}
 
-		response, err := iUseCases.CreateAdmin(tokenCTX, &request)
+		respAdmin, err := iUseCases.CreateAdmin(ctx, adm)
 		if err != nil {
 			return nil, fmt.Errorf("createAdminHandler >> %w", err)
 		}
 
-		return response, nil
+		return respAdmin, nil
 	}
 }

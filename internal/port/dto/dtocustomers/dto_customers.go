@@ -1,20 +1,16 @@
-package dtogetbuy
+package dtocustomers
 
 import (
 	"github.com/tahmooress/motor-shop/internal/entities/models"
 	"github.com/tahmooress/motor-shop/internal/pkg/query"
+	"github.com/tahmooress/motor-shop/internal/pkg/server"
 )
 
 type Request struct {
-	Shops []models.ID
+	server.Query
 }
 
 type Response struct {
-	query.Meta `json:"meta"`
-	Data       []Inventory `json:"data"`
-}
-
-type Inventory struct {
-	ShopID  models.ID
-	Factors []models.Factor
+	Data []models.Customer `json:"data"`
+	Meta query.Meta        `json:"meta"`
 }

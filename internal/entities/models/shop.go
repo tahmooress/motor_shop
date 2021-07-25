@@ -3,31 +3,40 @@ package models
 import "time"
 
 type Inventory struct {
-	ID           ID     `json:"id"`
-	FactorNumber string `json:"factor_number"`
-	Motor        `json:"motor"`
+	ID           ID        `json:"id"`
+	FactorNumber string    `json:"factor_number"`
+	Motor        Motor     `json:"motor"`
 	CreatedAt    time.Time `json:"created_at"`
 	UpdatedAt    time.Time `json:"updated_at"`
 }
 
 type Factor struct {
-	ID           ID
-	FactorNumber string
-	PayedAmount  float64
-	TotalAmount  float64
-	Motors       []Motor
-	Equities     []Equity
-	Customer     Customer
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
+	ID           ID        `json:"id"`
+	FactorNumber string    `json:"factor_number"`
+	PayedAmount  float64   `json:"payed_amount"`
+	TotalAmount  float64   `json:"total_amount"`
+	Motors       []Motor   `json:"motors"`
+	Equities     []Equity  `json:"equities"`
+	Customer     Customer  `json:"customer"`
+	CreatedAt    time.Time `json:"created_at"`
+	UpdatedAt    time.Time `json:"updated_at"`
+}
+
+type ShopEquity struct {
+	ID           ID        `json:"id"`
+	CustomerID   ID        `json:"customer_id"`
+	FactorNumber string    `json:"factor_number"`
+	Status       string    `json:"status"`
+	Amount       float64   `json:"amount"`
+	ClearDate    time.Time `json:"clear_date"`
+	CreatedAt    time.Time `json:"created_at"`
+	UpdatedAt    time.Time `json:"updated_at"`
 }
 
 type Equity struct {
 	ID        ID        `json:"id"`
-	FactorID  ID        `json:"factor_id"`
 	Amount    float64   `json:"amount"`
 	Status    string    `json:"status"`
-	Customer  Customer  `json:"customer"`
 	DueDate   time.Time `json:"due_date"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
@@ -56,17 +65,8 @@ type Transaction struct {
 }
 
 type Shop struct {
-	ShopIdentity
-	Stocks    []Inventory
-	Balance   []Transaction
-	Equities  []Equity
-	CreatedAt time.Time
-	UpdatedAt time.Time
-}
-
-type ShopIdentity struct {
-	ID        ID
-	ShopName  string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID        ID        `json:"id"`
+	ShopName  string    `json:"shop_name"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }

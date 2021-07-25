@@ -3,19 +3,14 @@ package usecases
 import (
 	"context"
 	"fmt"
-	"github.com/tahmooress/motor-shop/internal/port/dto/dtosell"
+	"github.com/tahmooress/motor-shop/internal/entities/models"
 )
 
-func (u *UseCases) Sell(ctx context.Context, request *dtosell.Request) (*dtosell.Response, error) {
-	factorNumber, err := u.IDatabase.CreateSellFactor(ctx, request)
+func (u *UseCases) Sell(ctx context.Context, factor models.Factor, shopID models.ID) (*models.Factor, error) {
+	respFactor, err := u.IDatabase.CreateSellFactor(ctx, factor, shopID)
 	if err != nil {
 		return nil, fmt.Errorf("sell >> %w", err)
 	}
 
-	response, err := u.IDatabase.GetSellByNumber(ctx, factorNumber)
-	if err != nil {
-		return nil, fmt.Errorf("sell >> %w", err)
-	}
-
-	return response, nil
+	return respFactor, nil
 }
