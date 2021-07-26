@@ -23,6 +23,10 @@ func (ns *NullString) MarshalJSON() ([]byte, error) {
 	return data, nil
 }
 
+//func (ns *NullString) UnmarshalJSON(b []byte) error{
+//	if len
+//}
+
 type NullFloat64 struct {
 	sql.NullFloat64
 }
@@ -55,6 +59,18 @@ func (nt *NullTime) MarshalJSON() ([]byte, error) {
 	}
 
 	return data, nil
+}
+
+func (nt *NullTime) UnmarshalJSON(b []byte) error {
+	if len(b) > 0 || b != nil {
+		nt.Valid = true
+
+		return json.Unmarshal(b, &nt.Time)
+	}
+
+	nt.Valid = false
+
+	return nil
 }
 
 type NullBool struct {

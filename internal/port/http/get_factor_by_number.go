@@ -23,17 +23,17 @@ func getFactorByNumberHandler(_ context.Context, iUseCases interfaces.IUseCases)
 
 		fNumber, ok := r.Params["factorNumber"]
 		if !ok || fNumber == nil || fNumber[0] == "" {
-			return nil, fmt.Errorf("getFactorByNumberHandler >>  %w", models.ErrParams)
+			return nil, fmt.Errorf("getFactorByNumberHandler >>  %w", models.ErrIDIsNotValid)
 		}
 
 		sp, ok := r.Params["shopID"]
 		if !ok || sp == nil || sp[0] == "" {
-			return nil, fmt.Errorf("getFactorByNumber >>  %w", models.ErrParams)
+			return nil, fmt.Errorf("getFactorByNumber >>  %w", models.ErrIDIsNotValid)
 		}
 
 		spID, err := uuid.Parse(sp[0])
 		if err != nil {
-			return nil, models.ErrUserNotFound
+			return nil, models.ErrIDIsNotValid
 		}
 
 		response, err := iUseCases.GetFactorByNumber(tokenCTX, fNumber[0], spID)

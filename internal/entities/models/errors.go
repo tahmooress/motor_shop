@@ -28,4 +28,10 @@ var (
 		"فروشگاهی با این نام و مشخصات قبلا در سیستم ثبت شده است.")
 	ErrEquityID = customeerror.New("1012", "equity with this id is not exits",
 		"حسابی با این شماره شناسیایی در سیستم موجود تیسن")
+	ErrFactorNotExist = customeerror.New("1013", "factor with this number is not exist",
+		"فاکتوری با این شماره در سیستم موجود نیست")
+	ErrTxTypeAndSubject = customeerror.New("1014", "type or subject of transaction is not valid",
+		"فیلد نوع یا عنوان برای تراکنش ورودی معتبر نیست")
+	ErrIDIsNotValid = customeerror.New("1015", "entry id number is not valid",
+		"شماره شناسایی ورودی یک شماره شناسیایی معتبر نمیباشد")
 )

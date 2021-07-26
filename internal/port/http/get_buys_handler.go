@@ -27,12 +27,12 @@ func getBuysHandler(_ context.Context, iUseCases interfaces.IUseCases) server.Mi
 
 		spID, ok := r.Params["shopID"]
 		if !ok || spID == nil || spID[0] == "" {
-			return nil, fmt.Errorf("getBuysHandler >>  %w", models.ErrShopNotExist)
+			return nil, fmt.Errorf("getBuysHandler >>  %w", models.ErrIDIsNotValid)
 		}
 
 		shopID, err := uuid.Parse(spID[0])
 		if err != nil {
-			return nil, models.ErrShopNotExist
+			return nil, models.ErrIDIsNotValid
 		}
 
 		request.ShopID = shopID

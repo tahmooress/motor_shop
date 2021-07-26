@@ -24,12 +24,12 @@ func getCustomerByIDHandler(_ context.Context, iUseCases interfaces.IUseCases) s
 
 		csID, ok := r.Params["customerID"]
 		if !ok || csID == nil || csID[0] == "" {
-			return nil, fmt.Errorf("getCustomerByIDHandler >>  %w", models.ErrParams)
+			return nil, fmt.Errorf("getCustomerByIDHandler >>  %w", models.ErrIDIsNotValid)
 		}
 
 		id, err := uuid.Parse(csID[0])
 		if err != nil {
-			return nil, models.ErrUserNotFound
+			return nil, models.ErrIDIsNotValid
 		}
 
 		response, err := iUseCases.GetCustomerByID(tokenCTX, id)

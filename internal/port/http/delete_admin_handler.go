@@ -30,7 +30,7 @@ func deleteAdminHandler(_ context.Context, iUseCases interfaces.IUseCases) serve
 
 		amdID, err := uuid.Parse(userID[0])
 		if err != nil {
-			return nil, models.ErrUserNotFound
+			return nil, models.ErrIDIsNotValid
 		}
 
 		adm.ID = amdID

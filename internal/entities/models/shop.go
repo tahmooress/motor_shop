@@ -1,80 +1,83 @@
 package models
 
-import "time"
+import (
+	"github.com/tahmooress/motor-shop/internal/pkg/query"
+)
 
 type Inventory struct {
-	ID           ID        `json:"id"`
-	FactorNumber string    `json:"factor_number"`
-	Motor        Motor     `json:"motor"`
-	CreatedAt    time.Time `json:"created_at"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	ID           ID        `json:"id,omitempty"`
+	FactorNumber string    `json:"factor_number,omitempty"`
+	Motor        Motor     `json:"motor,omitempty"`
+	CreatedAt    query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt    query.NullTime `json:"updated_at,omitempty"`
 }
 
 type Factor struct {
-	ID           ID        `json:"id"`
-	FactorNumber string    `json:"factor_number"`
-	PayedAmount  float64   `json:"payed_amount"`
-	TotalAmount  float64   `json:"total_amount"`
-	Motors       []Motor   `json:"motors"`
-	Equities     []Equity  `json:"equities"`
-	Customer     Customer  `json:"customer"`
-	CreatedAt    time.Time `json:"created_at"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	ID           ID        `json:"id,omitempty"`
+	FactorNumber string    `json:"factor_number,omitempty"`
+	PayedAmount  float64   `json:"payed_amount,omitempty"`
+	TotalAmount  float64   `json:"total_amount,omitempty"`
+	Motors       []Motor   `json:"motors,omitempty"`
+	Equities     []Equity  `json:"equities,omitempty"`
+	Customer     Customer  `json:"customer,omitempty"`
+	CreatedAt    query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt    query.NullTime `json:"updated_at,omitempty"`
 }
 
 type ShopEquity struct {
-	ID           ID        `json:"id"`
-	CustomerID   ID        `json:"customer_id"`
-	FactorNumber string    `json:"factor_number"`
-	Status       string    `json:"status"`
-	Amount       float64   `json:"amount"`
-	ClearDate    time.Time `json:"clear_date"`
-	CreatedAt    time.Time `json:"created_at"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	ID           ID        `json:"id,omitempty"`
+	CustomerID   ID        `json:"customer_id,omitempty"`
+	FactorNumber string    `json:"factor_number,omitempty"`
+	Status       string    `json:"status,omitempty"`
+	Amount       float64   `json:"amount,omitempty"`
+	ClearDate    query.NullTime `json:"clear_date,omitempty"`
+	CreatedAt    query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt    query.NullTime `json:"updated_at,omitempty"`
 }
 
 type Equity struct {
-	ID        ID        `json:"id"`
-	Amount    float64   `json:"amount"`
-	Status    string    `json:"status"`
-	DueDate   time.Time `json:"due_date"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	ID        ID        `json:"id,omitempty"`
+	Amount    float64   `json:"amount,omitempty"`
+	Status    string    `json:"status,omitempty"`
+	DueDate   query.NullTime `json:"due_date,omitempty"`
+	CreatedAt query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt query.NullTime `json:"updated_at,omitempty"`
 }
 
 type Motor struct {
-	ID          ID        `json:"id"`
-	ModelName   string    `json:"model_name"`
-	PelakNumber string    `json:"pelak_number"`
-	BodyNumber  string    `json:"body_number"`
-	Color       string    `json:"color"`
-	ModelYear   string    `json:"model_year"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
+	ID          ID        `json:"id,omitempty"`
+	ModelName   string    `json:"model_name,omitempty"`
+	PelakNumber string    `json:"pelak_number,omitempty"`
+	BodyNumber  string    `json:"body_number,omitempty"`
+	Color       string    `json:"color,omitempty"`
+	ModelYear   string    `json:"model_year,omitempty"`
+	CreatedAt   query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt   query.NullTime `json:"updated_at,omitempty"`
 }
 
 type Transaction struct {
-	ID           ID
-	FactorNumber string
-	Description  string
-	Subject      string
-	Type         string
-	Amount       float64
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
+	ID           ID             `json:"id,omitempty"`
+	ShopID       ID             `json:"shop_id,omitempty"`
+	FactorNumber string         `json:"factor_number,omitempty"`
+	Description  string         `json:"description,omitempty"`
+	Subject      string         `json:"subject,omitempty"`
+	Type         string         `json:"type,omitempty"`
+	Amount       float64        `json:"amount,omitempty"`
+	CreatedAt    query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt    query.NullTime `json:"updated_at,omitempty"`
 }
 
 type Shop struct {
-	ID        ID        `json:"id"`
-	ShopName  string    `json:"shop_name"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	ID        ID        `json:"id,omitempty"`
+	ShopName  string    `json:"shop_name,omitempty"`
+	CreatedAt query.NullTime `json:"created_at,omitempty"`
+	UpdatedAt query.NullTime `json:"updated_at,omitempty"`
 }
 
 type ShopTrades struct {
-	FactorNumber string    `json:"factor_number"`
-	CustomerID   ID        `json:"customer_id"`
-	TotalAmount  float64   `json:"total_amount"`
-	PayedAmount  float64   `json:"payed_amount"`
-	CreatedAt    time.Time `json:"created_at"`
+	FactorNumber string    `json:"factor_number,omitempty"`
+	CustomerID   ID        `json:"customer_id,omitempty"`
+	TotalAmount  float64   `json:"total_amount,omitempty"`
+	PayedAmount  float64   `json:"payed_amount,omitempty"`
+	CreatedAt    query.NullTime `json:"created_at,omitempty"`
 }

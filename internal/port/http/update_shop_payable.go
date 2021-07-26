@@ -24,12 +24,12 @@ func updateShopPayable(_ context.Context, iUseCases interfaces.IUseCases) server
 
 		eq, ok := r.Params["equityID"]
 		if !ok || eq == nil || eq[0] == "" {
-			return nil, fmt.Errorf("updateShopReceivable >>  %w", models.ErrEquityID)
+			return nil, fmt.Errorf("updateShopReceivable >>  %w", models.ErrIDIsNotValid)
 		}
 
 		equityID, err := uuid.Parse(eq[0])
 		if err != nil {
-			return nil, models.ErrUnknown
+			return nil, models.ErrIDIsNotValid
 		}
 
 		response, err := iUseCases.UpdateShopPayable(tokenCTX, equityID)

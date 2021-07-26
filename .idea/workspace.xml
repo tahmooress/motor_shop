@@ -2,32 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bab6867-0395-44f5-82de-94f22d1b8087" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/adapters/database/create_shop.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_buys.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_sells.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/adapters/database/update_shop_payable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/adapters/database/update_shop_receivable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/port/dto/dtoshoptrades/dto_shop_trades.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/port/http/create_shop_handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/port/http/update_shop_payable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/port/http/update_shop_receiveable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/usecases/create_shop.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/usecases/get_shop_buys.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/usecases/get_shop_sells.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/usecases/update_shop_payable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/usecases/update_shop_receviable.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/create_transaction.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_transactions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_transaction_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/dto/dtotransactions/dto_transactions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/create_transaction_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_shop_transactions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/get_transaction_by_id_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/create_transaction.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_shop_transactions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/get_transaction_by_id.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/entities/interfaces/idatabase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/interfaces/idatabase.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/entities/interfaces/iusecases.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/interfaces/iusecases.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entities/models/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/entity.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/entities/models/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/errors.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/entities/models/shop.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/shop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/models/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/pkg/query/aliases.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/query/aliases.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/delete_admin_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/delete_admin_handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/port/http/get_buys_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_buys_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_customer_by_id.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_customer_by_id.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_factor_by_number.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_factor_by_number.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/port/http/get_sells_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_sells_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_shop_inventory_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_shop_inventory_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_shop_payables.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_shop_payables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/get_shop_receiveables.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/get_shop_receiveables.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/port/http/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/0001_table_shops.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0001_table_shops.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/update_shop_payable.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/update_shop_payable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/update_shop_receiveable.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/update_shop_receiveable.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/0010_table_transactions.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0010_table_transactions.up.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,6 +175,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/port/http/buy_handler.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="DlvErrorBreakpoint" />
       </default-breakpoints>
