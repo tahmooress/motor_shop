@@ -18,6 +18,12 @@ func routeHandler(ctx context.Context, routes []*Router, logger *logger.Logger) 
 			path += "/"
 		}
 
+		if req.Method == http.MethodOptions {
+			makeResponse(res, nil, logger)
+
+			return
+		}
+
 		for _, route := range routes {
 			if route.pattern.MatchString(path) && route.Method == req.Method {
 				rawReq := makeRequest(res, req, logger)

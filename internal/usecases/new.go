@@ -14,7 +14,12 @@ type UseCases struct {
 }
 
 func New(ctx context.Context, IDatabase interfaces.IDatabase, logger *logger.Logger) (interfaces.IUseCases, error) {
-	return &UseCases{
+
+	u := &UseCases{
 		IDatabase: IDatabase,
-	}, nil
+	}
+
+	go u.runner(ctx, logger)
+
+	return u, nil
 }

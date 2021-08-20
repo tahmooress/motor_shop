@@ -13,5 +13,5 @@ type Request struct {
 
 type Response struct {
 	Equity []models.ShopEquity `json:"data"`
-	Meta   query.Meta
+	Meta   query.Meta `json:"meta"`
 }

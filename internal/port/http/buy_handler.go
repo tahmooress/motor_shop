@@ -31,7 +31,7 @@ func buyHandler(_ context.Context, iUseCases interfaces.IUseCases) server.Middle
 
 		err = json.Unmarshal(r.Req, &req)
 		if err != nil {
-			return nil, fmt.Errorf("createAdminHandler() >> json.Unmarshal() >> %w", err)
+			return nil, fmt.Errorf("buyHandler() >> json.Unmarshal() >> %w", err)
 		}
 
 		respFactor, err := iUseCases.Buy(tokenCTX, req.Factor, req.ShopID)

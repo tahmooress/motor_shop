@@ -36,6 +36,7 @@ type IDatabase interface {
 	UpdateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
 	UpdateShopReceivable(ctx context.Context, equityID models.ID) (*models.ShopEquity, error)
 	UpdateShopPayable(ctx context.Context, equityID models.ID) (*models.ShopEquity, error)
+	UpdateStatuses(ctx context.Context) error
 	DeleteAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
 	Close() error
 }
