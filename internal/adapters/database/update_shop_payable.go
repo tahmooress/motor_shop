@@ -46,7 +46,7 @@ func (m *Mysql) UpdateShopPayable(ctx context.Context, equityID models.ID) (*mod
 	}
 
 	txStmt, err := tx.PrepareContext(ctx, "INSERT INTO transactions(id, shop_id, type,"+
-		" subject, amount, factor_number) VALUES(?,?,?,?,?,?)")
+		" subject, amount, description,factor_number) VALUES(?,?,?,?,?,?,?)")
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> UpdateShopReceivable >> PrepareContext() >> %w", err)
 	}
@@ -54,7 +54,7 @@ func (m *Mysql) UpdateShopPayable(ctx context.Context, equityID models.ID) (*mod
 	defer txStmt.Close()
 
 	_, err = txStmt.ExecContext(ctx, models.NewID(), ShopID, models.PAYED, models.EQUITY,
-		amount, factorNumber)
+		amount, "",factorNumber)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> UpdateShopReceivable >> ExecContext() >> %w", err)
 	}

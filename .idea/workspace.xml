@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0bab6867-0395-44f5-82de-94f22d1b8087" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/adapters/database/update_statuses.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/usecases/runner.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_customer_by_mobile.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_payable_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/get_receiveable_by_id.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/update_payable_partly.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/adapters/database/update_receivable_partly.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/dto/dtoupdateequities/dto_update_equities.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/update_payable_partly.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/port/http/update_receivable_partly.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/update_receivable_partly.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/usecases/updaye_payable_partly.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/motor_shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/motor_shop.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/motor-shop" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/create_sell_factor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_shop_payables.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_payables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/get_shop_transactions.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/get_shop_transactions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/update_shop_payable.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/update_shop_payable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/update_shop_receivable.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/update_shop_receivable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapters/database/update_statuses.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapters/database/update_statuses.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/entities/interfaces/idatabase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/interfaces/idatabase.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/server/middlewares.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/server/middlewares.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/pkg/server/route_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/pkg/server/route_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtoshopequity/dto_shop_equity.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/dto/dtoshopequity/dto_shop_equity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/port/http/buy_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/buy_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/port/http/loggin_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/loggin_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/interfaces/iusecases.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/interfaces/iusecases.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/entities/models/shop.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entities/models/shop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/dto/dtologin/dto_loggin.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/dto/dtologin/dto_loggin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/port/http/create_shop_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/create_shop_handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/port/http/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/port/http/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/usecases/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/0002_table_admin_users.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0002_table_admin_users.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/create_shop.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/create_shop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecases/update_shop_payable.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecases/update_shop_payable.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/0001_table_shops.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0001_table_shops.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/0004_table_customers.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/0004_table_customers.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/1000_table_shops.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/1000_table_shops.up.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +78,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -68,6 +93,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build github.com/tahmooress/motor-shop/cmd">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="motor_shop" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="motor_shop" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build github.com/tahmooress/motor-shop/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="motor_shop" />
       <working_directory value="$PROJECT_DIR$" />
@@ -92,9 +126,9 @@
         </ENTRIES>
       </EXTENSION>
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/main.go" />
       <package value="github.com/tahmooress/motor-shop/cmd" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build motor_shop" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
@@ -122,9 +156,19 @@
         </ENTRIES>
       </EXTENSION>
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$" />
       <package value="github.com/tahmooress/motor-shop" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="motor_shop" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="motor_shop" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <list>
@@ -163,6 +207,61 @@
           <url>file://$PROJECT_DIR$/internal/port/http/buy_handler.go</url>
           <line>19</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/update_statuses.go</url>
+          <line>8</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/usecases/create_shop.go</url>
+          <line>12</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/usecases/create_transaction.go</url>
+          <line>10</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go</url>
+          <line>20</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/create_customer_with_tx.go</url>
+          <line>11</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/get_customer_by_mobile.go</url>
+          <line>9</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/create_buy_factor.go</url>
+          <line>61</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/port/http/update_payable_partly.go</url>
+          <line>13</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/usecases/updaye_payable_partly.go</url>
+          <line>11</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/usecases/updaye_payable_partly.go</url>
+          <line>12</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/adapters/database/update_payable_partly.go</url>
+          <line>13</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

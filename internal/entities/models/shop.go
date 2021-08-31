@@ -56,15 +56,15 @@ type Motor struct {
 }
 
 type Transaction struct {
-	ID           ID             `json:"id,omitempty"`
-	ShopID       ID             `json:"shop_id,omitempty"`
-	FactorNumber string         `json:"factor_number,omitempty"`
-	Description  string         `json:"description,omitempty"`
-	Subject      string         `json:"subject,omitempty"`
-	Type         string         `json:"type,omitempty"`
-	Amount       float64        `json:"amount,omitempty"`
-	CreatedAt    query.NullTime `json:"created_at,omitempty"`
-	UpdatedAt    query.NullTime `json:"updated_at,omitempty"`
+	ID           ID             `json:"id"`
+	ShopID       ID             `json:"shop_id"`
+	FactorNumber string         `json:"factor_number"`
+	Description  string         `json:"description"`
+	Subject      string         `json:"subject"`
+	Type         string         `json:"type"`
+	Amount       float64        `json:"amount"`
+	CreatedAt    query.NullTime `json:"created_at"`
+	UpdatedAt    query.NullTime `json:"updated_at"`
 }
 
 type Shop struct {

@@ -16,7 +16,7 @@ func (u *UseCases) CreateShop(ctx context.Context, shopName string) (*models.Sho
 
 	var request dtogetshops.Request
 
-	request.Query.Filter = map[string]map[string][]string{"shops.shop_name": {"=": []string{shopName}}}
+	request.Query.Filter = map[string]map[string][]string{"shop_name": {"eq": []string{shopName}}}
 
 	response, err := u.IDatabase.GetShopsList(ctx, &request)
 	if err != nil {

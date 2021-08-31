@@ -10,6 +10,7 @@ import (
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtoshopequity"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtoshoptrades"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtotransactions"
+	"github.com/tahmooress/motor-shop/internal/port/dto/dtoupdateequities"
 )
 
 type IDatabase interface {
@@ -39,4 +40,10 @@ type IDatabase interface {
 	UpdateStatuses(ctx context.Context) error
 	DeleteAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
 	Close() error
+	GetReceivableByID(ctx context.Context, id models.ID) (*models.ShopEquity, *models.ID, error)
+	GetPayableByID(ctx context.Context, id models.ID) (*models.ShopEquity, *models.ID, error)
+	UpdatePayablePartly(ctx context.Context, equity models.ShopEquity,
+		shopID models.ID, request *dtoupdateequities.Request) (*models.ID, error)
+	UpdateReceivablePartly(ctx context.Context, equity models.ShopEquity,
+		shopID models.ID, request *dtoupdateequities.Request) (*models.ID, error)
 }

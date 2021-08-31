@@ -1,5 +1,0 @@
-BEGIN;
-
-TRUNCATE TABLE shops;
-
-COMMIT;

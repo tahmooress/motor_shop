@@ -2,6 +2,8 @@ package database
 
 import (
 	"context"
+	"database/sql"
+	"errors"
 	"fmt"
 	"strings"
 
@@ -17,13 +19,23 @@ func (m *Mysql) CreateSellFactor(ctx context.Context, factor models.Factor, shop
 	defer tx.Rollback()
 
 	if factor.Customer.ID.ID() == 0 {
-		id, err := m.CreateCustomerWithTX(ctx, tx, factor.Customer)
-		if err != nil {
-			return nil, fmt.Errorf("mysql >> CreateFactor >> %w", err)
+		c, e := m.getCustomerByMobile(ctx, factor.Customer.Mobile)
+		if e != nil {
+			if errors.Is(e, sql.ErrNoRows) {
+				id, err := m.CreateCustomerWithTX(ctx, tx, factor.Customer)
+				if err != nil {
+					return nil, fmt.Errorf("mysql >> CreateFactor >> %w", err)
+				}
+
+				factor.Customer.ID = *id
+			} else {
+				return nil, e
+			}
 		}
 
-		factor.Customer.ID = *id
-
+		if e == nil {
+			factor.Customer.ID = c.ID
+		}
 	} else if factor.Customer.ID.ID() != 0 {
 
 		customer, _ := m.GetCustomerByID(ctx, factor.Customer.ID)
@@ -131,8 +143,8 @@ func (m *Mysql) CreateSellFactor(ctx context.Context, factor models.Factor, shop
 	}
 
 	txStmt, err := tx.PrepareContext(ctx, "INSERT INTO transactions(id, shop_id, type, subject,"+
-		"amount, factor_number,created_at) VALUES(?,?,?,?,"+
-		"?,?,?)")
+		"amount, description,factor_number,created_at) VALUES(?,?,?,?,"+
+		"?,?,?,?)")
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateBuyFactor >> PrepareContext() >> %w", err)
 	}
@@ -140,7 +152,7 @@ func (m *Mysql) CreateSellFactor(ctx context.Context, factor models.Factor, shop
 	defer txStmt.Close()
 
 	_, err = txStmt.ExecContext(ctx, models.NewID(), shopID, models.RECEIVED, models.EQUITY,
-		factor.PayedAmount, factor.FactorNumber, factor.CreatedAt)
+		factor.PayedAmount, "", factor.FactorNumber, factor.CreatedAt)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateBuyFactor >> ExecContext() >> %w", err)
 	}

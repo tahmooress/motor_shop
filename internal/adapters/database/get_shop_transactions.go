@@ -20,8 +20,8 @@ func (m *Mysql) GetShopTransactions(ctx context.Context,
 		"transactions.subject", "transactions.type", "transactions.amount", "transactions.created_at", "transactions.updated_at"}
 	q.Body = "FROM transactions"
 	q.QueryFilters = request.Query
-	q.Where("transactions.shop_id", []interface{}{request.ShopID}, "=")
-	q.Sort("desc", "transactions.created_at")
+	q.Where("transactions.shop_id", []interface{}{request.ShopID}, "eq")
+	//q.Sort("desc", "transactions.created_at")
 
 	var response dtotransactions.Response
 

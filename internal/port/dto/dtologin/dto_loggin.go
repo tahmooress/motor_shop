@@ -9,5 +9,5 @@ type Request struct {
 
 type Response struct {
 	Token string `json:"token"`
-	Admin models.Admin
+	Admin models.Admin `json:"admin"`
 }

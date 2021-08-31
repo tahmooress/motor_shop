@@ -84,7 +84,8 @@ func New(ctx context.Context, iUseCases interfaces.IUseCases, logger *logger.Log
 		{Path: transaction, Method: http.MethodPost, FN: createTransactionHandler(ctx, iUseCases)},
 		{Path: transaction + txID, Method: http.MethodGet, FN: getTransactionByIDHandler(ctx, iUseCases)},
 		{Path: transactions + shopID, Method: http.MethodGet, FN: getShopTransactionsHandler(ctx, iUseCases)},
-		//{Path: transactions + shopID, Method: http.MethodOptions, FN: getShopTransactionsHandler(ctx, iUseCases)},
+		{Path: debts , Method: http.MethodPost, FN: updatePayablePartly(ctx, iUseCases)},
+		{Path: demands , Method: http.MethodPost, FN: updateReceivablePartly(ctx, iUseCases)},
 	}
 
 	serverHTTP, err := server.New(ctx, ip, port, routers, logger)

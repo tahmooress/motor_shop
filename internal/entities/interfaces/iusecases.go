@@ -11,6 +11,7 @@ import (
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtoshopequity"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtoshoptrades"
 	"github.com/tahmooress/motor-shop/internal/port/dto/dtotransactions"
+	"github.com/tahmooress/motor-shop/internal/port/dto/dtoupdateequities"
 )
 
 type IUseCases interface {
@@ -22,8 +23,10 @@ type IUseCases interface {
 	CreateShop(ctx context.Context, shopName string) (*models.Shop, error)
 	CreateTransaction(ctx context.Context, transaction models.Transaction) (*models.Transaction, error)
 	UpdateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
-	UpdateShopReceivable(ctx context.Context, equityID models.ID) (*models.ShopEquity, error)
+	UpdateReceivablePartly(ctx context.Context,request *dtoupdateequities.Request) (*models.ShopEquity, error)
+	UpdatePayablePartly(ctx context.Context,request *dtoupdateequities.Request) (*models.ShopEquity, error)
 	UpdateShopPayable(ctx context.Context, equityID models.ID) (*models.ShopEquity, error)
+	UpdateShopReceivable(ctx context.Context, equityID models.ID) (*models.ShopEquity, error)
 	DeleteAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error)
 	GetAdmins(ctx context.Context, request *dtoadmins.Request) (*dtoadmins.Response, error)
 	GetShopsList(ctx context.Context, request *dtogetshops.Request) (*dtogetshops.Response, error)

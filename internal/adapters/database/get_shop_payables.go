@@ -19,7 +19,7 @@ func (m *Mysql) GetShopPayables(ctx context.Context, request *dtoshopequity.Requ
 		"shop_payable.amount", "shop_payable.status", "shop_payable.clear_date",
 		"shop_payable.created_at", "shop_payable.updated_at"}
 	q.Body = "FROM shop_payable"
-	q.Where("shop_payable.shop_id", []interface{}{request.ShopID}, "=")
+	q.Where("shop_payable.shop_id", []interface{}{request.ShopID}, "eq")
 	q.QueryFilters = request.Query
 	q.Sort("asc", "shop_payable.clear_date")
 
