@@ -9,10 +9,12 @@ import (
 )
 
 func (m *Mysql) CreateAdmin(ctx context.Context, admin models.Admin) (*models.Admin, error) {
-	tx, err := m.db.Begin()
+	tx, err := m.db.BeginTx(ctx, nil)
 	if err != nil {
 		return nil, fmt.Errorf("mysql >> CreateAdmin() >> db.Begin() >> %w", err)
 	}
+
+	defer tx.Rollback()
 
 	stmt, err := tx.PrepareContext(ctx, "INSERT IGNORE INTO admin_users(id, user_name, password)"+
 		"VALUES(?,?,?)")

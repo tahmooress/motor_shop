@@ -14,6 +14,8 @@ func (m *Mysql) UpdateAdmin(ctx context.Context, admin models.Admin) (*models.Ad
 		return nil, fmt.Errorf("mysql >> UpdateAdmin() >> db.Begin() >> %w", err)
 	}
 
+	defer tx.Rollback()
+
 	if admin.UserName != "" {
 		stmt, err := tx.PrepareContext(ctx, "UPDATE admin_users SET user_name = ? WHERE id = ?")
 		if err != nil {
@@ -79,14 +81,12 @@ func (m *Mysql) UpdateAdmin(ctx context.Context, admin models.Admin) (*models.Ad
 
 	insertStmt, err := tx.PrepareContext(ctx, rawStmt)
 	if err != nil {
-		tx.Rollback()
 
 		return nil, fmt.Errorf("mysql >> UpdateAdmin() >> PrepareContext() >> %w", err)
 	}
 
 	_, err = insertStmt.ExecContext(ctx, args...)
 	if err != nil {
-		tx.Rollback()
 
 		return nil, fmt.Errorf("mysql >> UpdateAdmin() >> ExecContext() >> %w", err)
 	}
